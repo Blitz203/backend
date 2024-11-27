@@ -4,13 +4,13 @@ import { idSchema } from "../../zodSchemas/schemas";
 
 const prisma = new PrismaClient();
 
-export async function getAllMenuItems(
+export async function getMenuItem(
   req: Request,
   res: Response
 ): Promise<void | any> {
-  const { id } = req.params;
+  const { id: name } = req.params;
 
-  const validatedId = idSchema.safeParse(id);
+  const validatedId = idSchema.safeParse(name);
   if (!validatedId.success) {
     return res
       .status(400)
@@ -20,7 +20,7 @@ export async function getAllMenuItems(
   try {
     const menuItems = await prisma.menu_item.findUnique({
       where: { id: validatedId.data },
-    });
+    }); 
     res.json(menuItems);
   } catch (error) {
     console.error(error);
@@ -28,4 +28,4 @@ export async function getAllMenuItems(
   }
 }
 
-export default getAllMenuItems;
+export default getMenuItem;

@@ -5,9 +5,11 @@ import authRoutes from "./routes/authRoutes";
 import userRoutes from "./routes/userRoutes";
 import menuItemRoutes from "./routes/menuItemRoutes";
 import menuItemTypesRoutes from "./routes/MenuItemTypeRoutes";
-import limiter from "./utils/rateLimiter";
+import menuRoutes from "./routes/menuRoutes";
 import reservationRoutes from "./routes/reservationRoutes";
+import limiter from "./utils/rateLimiter";
 import cors from "cors";
+
 
 dotenv.config();
 
@@ -25,6 +27,7 @@ app.use("/auth", authRoutes);
 app.use("/user", userRoutes); // only for testing purposes. TODO: remove this later
 app.use("/menu_items", menuItemRoutes);
 app.use("/menu_item_types", menuItemTypesRoutes);
+app.use("/menu", menuRoutes);
 app.use("/reservations", reservationRoutes);
 
 const PORT = process.env.PORT || 5005;
