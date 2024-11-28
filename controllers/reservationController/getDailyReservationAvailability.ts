@@ -12,6 +12,7 @@ export async function getDailyReservationAvailability(
 ): Promise<void | any> {
   // get search params from query
   const { start_date, end_date } = req.query;
+  console.log(start_date)
 
   // validate search params
   const result = getReservationAvailabilityInRangeSchema.safeParse({

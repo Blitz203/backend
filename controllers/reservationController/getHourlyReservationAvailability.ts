@@ -15,7 +15,7 @@ export async function getHourlyReservationAvailability(
 ): Promise<void | any> {
   // get search params from query
   const { date } = req.query;
-
+console.log(date)
   // validate search params
   const result = getHourlyReservationAvailabilitySchema.safeParse({
     date,
@@ -109,7 +109,9 @@ export async function getHourlyReservationAvailability(
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");
+    
   }
 }
+
 
 export default getHourlyReservationAvailability;

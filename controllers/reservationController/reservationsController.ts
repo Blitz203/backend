@@ -1,5 +1,3 @@
-//todo: roleId
-
 import express, { Request, Response } from "express";
 import { PrismaClient } from "@prisma/client";
 
@@ -8,7 +6,7 @@ const prisma = new PrismaClient();
 
 app.use(express.json());
 
-app.post("/reservations", async (req: Request, res: Response) => {
+app.post("/api/reservations", async (req: Request, res: Response) => {
   const {
     time,
     duration_in_minutes,
@@ -33,9 +31,11 @@ app.post("/reservations", async (req: Request, res: Response) => {
         customer_phone_number,
       },
     });
-    res.status(201).json(reservation);
+    res.status(201).json(reservation); 
   } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal Server Error");
+    console.error("Error creating reservation:", error);
+    res.status(500).send("Internal Server Error"); 
   }
 });
+
+app.listen(5000, () => console.log("Server running on port 5000"));
