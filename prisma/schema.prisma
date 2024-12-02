@@ -86,6 +86,8 @@ model reservation {
   tables_in_orders_and_reservations tables_in_orders_and_reservations[]
 }
 
+
+
 model role {
   id         Int        @id @default(autoincrement())
   name       String     @db.VarChar

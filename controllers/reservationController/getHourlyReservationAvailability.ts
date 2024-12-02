@@ -109,7 +109,7 @@ export async function getHourlyReservationAvailability(
     const startDate = new Date(result.data.date);
     const [openHour, openMinute] = openTime.split(":").map(Number);
     startDate.setHours(openHour, openMinute, 0, 0);
-
+    
     const requestedPeopleCount = result?.data?.peopleCount;
     console.log("🚀 ~ requestedPeopleCount:", requestedPeopleCount);
     for (let i = 0; i < openDuration; i += 30) {

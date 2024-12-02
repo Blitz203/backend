@@ -2,7 +2,6 @@
 import express from "express";
 import dotenv from "dotenv";
 import authRoutes from "./routes/authRoutes";
-import userRoutes from "./routes/userRoutes";
 import menuItemRoutes from "./routes/menuItemRoutes";
 import menuItemTypesRoutes from "./routes/MenuItemTypeRoutes";
 import menuRoutes from "./routes/menuRoutes";
@@ -24,11 +23,11 @@ app.use(cors(corsOptions));
 app.use("/auth/signin", limiter);
 app.use("/auth/signup", limiter);
 app.use("/auth", authRoutes);
-app.use("/user", userRoutes); // only for testing purposes. TODO: remove this later
 app.use("/menu_items", menuItemRoutes);
 app.use("/menu_item_types", menuItemTypesRoutes);
 app.use("/menu", menuRoutes);
 app.use("/reservations", reservationRoutes);
+
 
 const PORT = process.env.PORT || 5005;
 app.listen(PORT, () =>

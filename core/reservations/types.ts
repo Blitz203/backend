@@ -11,7 +11,7 @@ export interface Reservation {
   tableIds: number[];
   startTime: Date;
   duration: number; // in minutes
-}
+} 
 
 export enum DayAvailability {
   Available = "Available",
